@@ -43,6 +43,51 @@ namespace ShowcaseMVC.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult FizzBuzzPage()
+        {
+            FizzBuzz model = new();
+            
+            model.FizzValue = 3;
+            model.BuzzValue = 5;
+
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult FizzBuzzPage(FizzBuzz fizzBuzz)
+        {
+            List<string> fbItems = new();
+
+            bool fizz;
+            bool buzz;
+
+            for (int i = 1; i <= 100; i++)
+            {
+                fizz = (i % fizzBuzz.FizzValue == 0);
+                buzz = (i % fizzBuzz.BuzzValue == 0);
+
+                if(fizz == true && buzz == true)
+                {
+                    fbItems.Add("FizzBuzz");
+                }
+                else if (fizz == true)
+                {
+                    fbItems.Add("Fizz");
+                }
+                else if (buzz == true)
+                {
+                    fbItems.Add("Buzz");
+                }
+                else
+                {
+                    fbItems.Add(i.ToString());
+                }
+            }
+            fizzBuzz.Result = fbItems;
+            
+            return View(fizzBuzz);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
