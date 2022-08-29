@@ -88,6 +88,27 @@ namespace ShowcaseMVC.Controllers
             
             return View(fizzBuzz);
         }
+        public IActionResult MortgageCalculatorPage()
+        {
+            Loan loan = new();
+
+            loan.Payment = 0.00m;
+            loan.TotalCost = 0.00m;
+            loan.TotalInterest = 0.00m;
+            loan.Rate = 0.00m;
+            loan.Term = 0;
+            loan.Amount = 0.00m;
+
+            return View(loan);
+        }
+        //public IActionResult MortgageCalculatorPage()
+        //{
+        //    return View();
+        //}
+        //public IActionResult MortgageCalculatorPage()
+        //{
+        //    return View();
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
