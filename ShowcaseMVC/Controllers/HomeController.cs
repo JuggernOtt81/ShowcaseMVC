@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using ShowcaseMVC.Helpers;
 
 namespace ShowcaseMVC.Controllers
 {
@@ -95,16 +96,24 @@ namespace ShowcaseMVC.Controllers
             loan.Payment = 0.00m;
             loan.TotalCost = 0.00m;
             loan.TotalInterest = 0.00m;
-            loan.Rate = 0.00m;
-            loan.Term = 0;
-            loan.Amount = 0.00m;
+            loan.Rate = 4.05m;
+            loan.Term = 48;
+            loan.Amount = 500m;
 
             return View(loan);
         }
-        //public IActionResult MortgageCalculatorPage()
-        //{
-        //    return View();
-        //}
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult MortgageCalculatorPage(Loan loan)
+        {
+            //calculate the loan & get payments
+            var loanHelper = new LoanHelper();
+
+            Loan newLoan = loanHelper.GetPayments(loan);
+
+            return View(loan);
+        }
         //public IActionResult MortgageCalculatorPage()
         //{
         //    return View();
