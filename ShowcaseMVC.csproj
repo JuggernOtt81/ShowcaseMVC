@@ -5,7 +5,7 @@
 		<CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
 		<Configurations>Debug;Release;Netlify</Configurations>
 		<Platforms>AnyCPU;x64</Platforms>
-		<InvariantGlobalization>true</InvariantGlobalization>
+		<!--<InvariantGlobalization>true</InvariantGlobalization>-->
 	</PropertyGroup>
 
 	<ItemGroup>
