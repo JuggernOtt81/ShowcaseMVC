@@ -14,7 +14,7 @@
                     1 - Enter a number in each box.<br>2 -Press the <strong>Submit</strong> button<br><span style="font-size: small;">TIP:<br>Keep the numbers low, unless you want to cause your CPU pain!</span>
                 </p>
             </div>
-            <div class="col col-lg-8">
+            <div class="col col-lg-8 text-light">
                 <h5>Enter Values</h5>
                 <form asp-controller="Home" asp-action="FizzBuzzPage" method="post">
                     <div class="form-group">
@@ -26,7 +26,7 @@
                         <input type="number" asp-for="BuzzValue" class="form-control" placeholder="Enter Buzz" value="@Model.BuzzValue" />
                     </div>
                     <div class=" col d-flex justify-content-end">
-                        <button type="submit" class="btn btn-outline-light">Submit</button>
+                        <button type="submit" class="btn btn-cfOrange">Submit</button>
                     </div>
                 </form>
                 <div class="row">
