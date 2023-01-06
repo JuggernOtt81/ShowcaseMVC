@@ -1,4 +1,5 @@
-﻿@model ShowcaseMVC.Models.Loan
+﻿@using System.Globalization;
+@model ShowcaseMVC.Models.Loan
 @{
     ViewData["Title"] = "Mortgage Calculator";
 }
@@ -40,7 +41,7 @@
                 </div>
                 <div>
                     <p id="payment" style="font-variant:small-caps; color:orangered">
-                        @Model.Payment.ToString("C")
+                        @Model.Payment.ToString("C", CultureInfo.GetCultureInfo("en-US"))
                     </p>
                 </div>
                 <div class="row">
@@ -48,19 +49,19 @@
                         <label class="text-left">Total Principle</label>
                     </div>
                     <div class="col-6 text-right" id="totalPrinciple">
-                        @Model.Amount.ToString("C")
+                        @Model.Amount.ToString("C", CultureInfo.GetCultureInfo("en-US"))
                     </div>
                     <div class="col-6">
                         <label class="text-left">Total Interest</label>
                     </div>
                     <div class="col-6 text-right" id="totalInterest">
-                        @Model.TotalInterest.ToString("C")
+                        @Model.TotalInterest.ToString("C", CultureInfo.GetCultureInfo("en-US"))
                     </div>
                     <div class="col-6">
                         <label class="text-left">Total Cost</label>
                     </div>
                     <div class="col-6 text-right" id="totalCost">
-                        @Model.TotalCost.ToString("C")
+                        @Model.TotalCost.ToString("C", CultureInfo.GetCultureInfo("en-US"))
                     </div>
                 </div>
             </div>
@@ -87,11 +88,11 @@
                             {
                                 <tr>
                                     <td align="justify">@item.Month.ToString()</td>
-                                    <td align="justify">@item.Payment.ToString("C")</td>
-                                    <td align="justify">@item.MonthlyPrinciple.ToString("C")</td>
-                                    <td align="justify">@item.MonthlyInterest.ToString("C")</td>
-                                    <td align="justify">@item.TotalInterest.ToString("C")</td>
-                                    <td align="justify">@item.Balance.ToString("C")</td>
+                                    <td align="justify">@item.Payment.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
+                                    <td align="justify">@item.MonthlyPrinciple.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
+                                    <td align="justify">@item.MonthlyInterest.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
+                                    <td align="justify">@item.TotalInterest.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
+                                    <td align="justify">@item.Balance.ToString("C", CultureInfo.GetCultureInfo("en-US"))</td>
                                 </tr>
                             }
                         </tbody>
